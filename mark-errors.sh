@@ -1,10 +1,4 @@
-for gene in $(cat genes.txt)
+for gene in $(cat genes/.genes)
 do
-    for file in $(ls genes/$gene/*/*.abundfilt)
-    do
-        seq="genes/$gene/$gene.seq"
-
-        echo $file
-        python mark-error.py "$file".err $file $seq
-    done
+    python mark-error.py genes/$gene-err.fastq genes/$gene.fastq genes/$gene.seq
 done

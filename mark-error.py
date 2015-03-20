@@ -12,9 +12,14 @@ origseqfile = open(args.original_sequence_filename)
 
 orig_sequence = origseqfile.readline().upper()
 
+# print orig_sequence[:60], "..."
+
 for read in screed.open(args.input_sequence_filename):
     name = read['name']
     sequence = read['sequence']
+
+    # print sequence.upper()
+
     if sequence.upper() in orig_sequence:
         name = name + " CORRECT"
     else:
